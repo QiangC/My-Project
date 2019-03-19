@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: spring-cloud-eureka
+server:
+  port: 8000
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+#    服务交互地址
+      defaultZone: http://localhost:${server.port}/eureka/
+
+#集群配置：将服务地址，名称添加到C:\Windows\System32\drivers\etc\hosts中  通过java -jar命令分别运行jar包程序
+#java -jar com.example.eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1
+#java -jar com.example.eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer2
+#java -jar com.example.eureka-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer3
+#spring:
+#  application:
+#    name: spring-cloud-eureka
+#  profiles: peer1
+#server:
+#  port: 8000
+#eureka:
+#  instance:
+#    hostname: peer1
+#  client:
+#    serviceUrl:
+#      defaultZone: http://peer2:8001/eureka/,http://peer3:8002/eureka/
+#
+#spring:
+#  application:
+#    name: spring-cloud-eureka
+#  profiles: peer2
+#server:
+#  port: 8001
+#eureka:
+#  instance:
+#    hostname: peer2
+#  client:
+#    serviceUrl:
+#      defaultZone: http://peer1:8000/eureka/,http://peer3:8002/eureka/
+#
+#spring:
+#  application:
+#    name: spring-cloud-eureka
+#  profiles: peer3
+#server:
+#  port: 8002
+#eureka:
+#  instance:
+#    hostname: peer3
+#  client:
+#    serviceUrl:
+#      defaultZone: http://peer1:8000/eureka/,http://peer2:8001/eureka/
