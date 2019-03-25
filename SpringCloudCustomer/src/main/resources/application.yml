@@ -9,3 +9,14 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8000/eureka/
+feign:
+  hystrix:
+    enabled: true
+
+#hystrix采坑：Unable to connect to Command Metric Stream.错误
+#添加以下皮质，访问路径改为：/actuator/hystrix.stream
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health","info","hystrix.stream"]
